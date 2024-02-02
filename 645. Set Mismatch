@@ -15,7 +15,7 @@ Constraints:
 2 <= nums.length <= 104
 1 <= nums[i] <= 104
 
-class Solution {
+class MisMatch {
     public int[] findErrorNums(int[] nums) {
         HashSet<Integer> set = new HashSet<>();
         int n = nums.length;
