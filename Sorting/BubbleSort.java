@@ -1,5 +1,8 @@
 package Sorting;
-
+/*Bubble Sort is an Inpalce(whose relative order of elements doesn't change and
+  Stable Algorithm(which doesn't use extra space
+* TC : O(N^2) SC:O(1)
+* */
 import java.util.Arrays;
 
 public class BubbleSort {
