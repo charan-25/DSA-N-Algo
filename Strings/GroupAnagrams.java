@@ -23,6 +23,7 @@ public class GroupAnagrams {
                 map.get(s).add(str);
             else{
                 List<String> list = new ArrayList<>();
+                list.toArray();
                 list.add(str);
                 map.put(s,list);
             }
