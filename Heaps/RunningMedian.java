@@ -66,8 +66,10 @@ public class RunningMedian {
     public static void main(String[] args) {
         int[] arr = {59,64,10,39};
         System.out.println(Arrays.toString(runningMedian(arr)));
+        System.out.println(Arrays.toString(bruteRunningMedian(arr)));
     }
 
+    //Optimized Approach
     public static int[] runningMedian(int[] arr){
         int n = arr.length;
         PriorityQueue<Integer> left = new PriorityQueue<>(Collections.reverseOrder());
@@ -81,8 +83,32 @@ public class RunningMedian {
             }else{
                 left.add(arr[i]);
                 right.add(left.remove());
-                res[i] = left.peek();
+                res[i] = (left.peek()+right.peek())/2;
             }
+        }
+        return res;
+    }
+
+    //BruteForce Approach
+    public static int[] bruteRunningMedian(int[] arr){
+        int n = arr.length;
+        int[] res = new int[n];
+        int k=0;
+        for(int i=0;i<n;i++){
+            int[] ans = new int[i+1];
+            int index = 0;
+            for(int j=0;j<=i;j++){
+                ans[index] = arr[j];
+                index++;
+            }
+            Arrays.sort(ans);
+            if(ans.length%2==0){
+                int len = ans.length/2;
+                res[k] = (ans[len-1]+ans[len])/2;
+            }
+            else
+                res[k] =ans[ans.length/2];
+            k++;
         }
         return res;
     }
